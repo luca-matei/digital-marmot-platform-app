@@ -1,18 +1,18 @@
-import AddIcon from '@mui/icons-material/Add';
+import AuthForm from './auth/auth-form'
 
-export default function Dashboard() {
-  const userName = "User Name"; // Dynamically replace as needed
-
+export default function Home() {
   return (
-    <div className="flex justify-center items-center w-full h-full"> {/* Adjusted to match parent size without specifying viewport height */}
-      <div className="flex flex-col items-center justify-center space-y-4"> {/* Ensures vertical centering with flexbox */}
-        <h1 className="text-3xl md:text-5xl font-bold">Welcome {userName}!</h1> {/* "Welcome" is now larger */}
-        <p className="text-xl md:text-2xl">Start by adding a module to your dashboard!</p> {/* Ensures "Start by..." is smaller than "Welcome" */}
-        <button className="bg-primary hover:bg-primary text-white font-bold py-2 px-4 rounded flex items-center"> {/* Uses primary colors */}
-          <AddIcon className="text-current" /> {/* Uses Tailwind for styling */}
-          <span className="ml-2">Add Module</span>
-        </button>
+    <div className="row">
+      <div className="col-6">
+        <h1 className="header">Supabase Auth + Storage</h1>
+        <p>
+          Experience our Auth and Storage through a simple profile management example. Create a user
+          profile and upload an avatar image. Fast, simple, secure.
+        </p>
+      </div>
+      <div className="col-6 auth-widget">
+        <AuthForm />
       </div>
     </div>
-  );
+  )
 }
