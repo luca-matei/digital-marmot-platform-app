@@ -3,6 +3,7 @@ import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import HomeIconOutline from '@mui/icons-material/HomeOutlined';
+import WalletOutline from '@mui/icons-material/WalletOutlined';
 import AddIcon from '@mui/icons-material/Add';
 import SettingsIcon from '@mui/icons-material/Settings';
 import Tooltip from '@mui/material/Tooltip'; // Import Tooltip from Material UI
@@ -16,7 +17,7 @@ export default function BaseAppLayout({
     <div className="flex h-screen overflow-hidden"> {/* Ensure full window size and prevent overflow */}
       <div className="w-16 bg-gray-800 flex flex-col justify-between"> {/* Sidebar remains unchanged */}
         <div className="flex flex-col items-center py-2"> {/* Center items and reduce padding */}
-          <Link href="/" passHref>
+          <Link href="/public" passHref>
             <Tooltip title="Logo" placement="right">
               <div className="cursor-pointer">
                 {/* Replace `/logo.png` with your actual logo path */}
@@ -26,9 +27,17 @@ export default function BaseAppLayout({
           </Link>
           <div className="flex flex-col items-center space-y-2 mt-4"> {/* Center icons and reduce space */}
             <Tooltip title="Dashboard" placement="right">
-              <Link href="/dashboard" passHref>
+              <Link href="/" passHref>
                 <div className="cursor-pointer">
                   <HomeIconOutline
+                      className="text-gray-400 hover:text-primary transition-colors duration-200"/> {/* Updated for smoother transition */}
+                </div>
+              </Link>
+            </Tooltip>
+            <Tooltip title="Finances" placement="right">
+              <Link href="/finances" passHref>
+                <div className="cursor-pointer">
+                  <WalletOutline
                       className="text-gray-400 hover:text-primary transition-colors duration-200"/> {/* Updated for smoother transition */}
                 </div>
               </Link>
