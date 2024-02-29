@@ -1,13 +1,10 @@
 "use client";
-import { Fragment, useState } from 'react'
+import React, { Fragment, useState } from 'react'
 import { Dialog, Menu, Transition } from '@headlessui/react'
 import {
   Bars3Icon,
   BellIcon,
-  CalendarIcon,
-  ChartPieIcon,
-  DocumentDuplicateIcon,
-  FolderIcon,
+  WalletIcon,
   HomeIcon,
   UsersIcon,
   XMarkIcon,
@@ -15,12 +12,8 @@ import {
 import { ChevronDownIcon, MagnifyingGlassIcon } from '@heroicons/react/20/solid'
 
 const navigation = [
-  { name: 'Dashboard', href: '#', icon: HomeIcon, current: true },
-  { name: 'Team', href: '#', icon: UsersIcon, current: false },
-  { name: 'Projects', href: '#', icon: FolderIcon, current: false },
-  { name: 'Calendar', href: '#', icon: CalendarIcon, current: false },
-  { name: 'Documents', href: '#', icon: DocumentDuplicateIcon, current: false },
-  { name: 'Reports', href: '#', icon: ChartPieIcon, current: false },
+  { name: 'Dashboard', href: '/dashboard', icon: HomeIcon, current: true },
+  { name: 'Finance', href: '/finance', icon: WalletIcon, current: false },
 ]
 const userNavigation = [
   { name: 'Your profile', href: '#' },
@@ -31,7 +24,11 @@ function classNames(...classes: any[]) {
   return classes.filter(Boolean).join(' ')
 }
 
-export default function Dashboard() {
+export default function DashboardLayout({
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
   const [sidebarOpen, setSidebarOpen] = useState(false)
 
   return (
@@ -238,7 +235,7 @@ export default function Dashboard() {
 
         <main className="lg:pl-20">
           <div className="xl:pr-96">
-            <div className="px-4 py-10 sm:px-6 lg:px-8 lg:py-6">{/* Main area */}</div>
+            <div className="px-4 py-10 sm:px-6 lg:px-8 lg:py-6">{children}</div>
           </div>
         </main>
 
