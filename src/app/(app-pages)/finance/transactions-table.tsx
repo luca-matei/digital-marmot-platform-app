@@ -13,7 +13,7 @@ export default function TransactionsTable({ transactions }: TransactionsTablePro
         <div className="sm:flex-auto">
           <h1 className="text-base font-semibold leading-6 text-gray-900">Transactions</h1>
           <p className="mt-2 text-sm text-gray-700">
-            A list of all transaction in your accounts.
+            A list of all transactions in your accounts.
           </p>
         </div>
         <div className="mt-4 sm:ml-16 sm:mt-0 sm:flex-none">
@@ -38,7 +38,7 @@ export default function TransactionsTable({ transactions }: TransactionsTablePro
                     <th scope="col" className="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">
                       Category
                     </th>
-                    <th scope="col" className="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">
+                    <th scope="col" className="px-3 py-3.5 text-right text-sm font-semibold text-gray-900">
                       Amount
                     </th>
                     <th scope="col" className="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">
@@ -57,10 +57,10 @@ export default function TransactionsTable({ transactions }: TransactionsTablePro
                       </td>
                       <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{transaction.category}</td>
                       <td className={`whitespace-nowrap px-3 py-4 text-sm text-right ${transaction.amount < 0 ? 'text-red-600' : 'text-green-600'}`}>
-                        {transaction.amount}
+                        {transaction.amount < 0 ? '' : "+"}{transaction.amount.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
                       </td>
                       <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
-                        {transaction.timestamp ? format(new Date(transaction.timestamp), 'MMM d, HH:mm') : 'Invalid date'}
+                        {transaction.timestamp ? format(new Date(transaction.timestamp), 'MMM d') : 'Invalid date'}
                       </td>
                       <td className="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-6">
                         <a href="#" className="text-indigo-600 hover:text-indigo-900">
