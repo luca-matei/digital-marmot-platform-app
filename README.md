@@ -12,6 +12,9 @@ yarn dev
 pnpm dev
 # or
 bun dev
+
+npx supabase gen types typescript --project-id "pnqayfehgfdciwpckcsd" --schema public > types/supabase.ts
+
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.

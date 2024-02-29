@@ -9,77 +9,78 @@ export type Json =
 export type Database = {
   public: {
     Tables: {
-      app_modules: {
+      finance_transactions: {
         Row: {
-          app_profile_id: string | null
+          amount: number | null
+          category: string | null
           created_at: string
-          description: string | null
           id: string
-          name: string | null
-          type: string | null
+          timestamp: string | null
+          title: string | null
           updated_at: string | null
+          user_id: string | null
         }
         Insert: {
-          app_profile_id?: string | null
+          amount?: number | null
+          category?: string | null
           created_at?: string
-          description?: string | null
           id?: string
-          name?: string | null
-          type?: string | null
+          timestamp?: string | null
+          title?: string | null
           updated_at?: string | null
+          user_id?: string | null
         }
         Update: {
-          app_profile_id?: string | null
+          amount?: number | null
+          category?: string | null
           created_at?: string
-          description?: string | null
           id?: string
-          name?: string | null
-          type?: string | null
+          timestamp?: string | null
+          title?: string | null
           updated_at?: string | null
+          user_id?: string | null
         }
-        Relationships: []
-      }
-      app_profiles: {
-        Row: {
-          created_at: string
-          description: string | null
-          id: string
-          name: string | null
-          updated_at: string | null
-        }
-        Insert: {
-          created_at?: string
-          description?: string | null
-          id?: string
-          name?: string | null
-          updated_at?: string | null
-        }
-        Update: {
-          created_at?: string
-          description?: string | null
-          id?: string
-          name?: string | null
-          updated_at?: string | null
-        }
-        Relationships: []
+        Relationships: [
+          {
+            foreignKeyName: "public_finance_transactions_user_id_fkey"
+            columns: ["user_id"]
+            isOneToOne: false
+            referencedRelation: "user_profiles"
+            referencedColumns: ["id"]
+          }
+        ]
       }
       user_profiles: {
         Row: {
           created_at: string
+          full_name: string | null
           id: string
           updated_at: string | null
+          username: string | null
         }
         Insert: {
           created_at?: string
-          id?: string
+          full_name?: string | null
+          id: string
           updated_at?: string | null
+          username?: string | null
         }
         Update: {
           created_at?: string
+          full_name?: string | null
           id?: string
           updated_at?: string | null
+          username?: string | null
         }
-        Relationships: []
+        Relationships: [
+          {
+            foreignKeyName: "public_user_profiles_id_fkey"
+            columns: ["id"]
+            isOneToOne: true
+            referencedRelation: "users"
+            referencedColumns: ["id"]
+          }
+        ]
       }
     }
     Views: {

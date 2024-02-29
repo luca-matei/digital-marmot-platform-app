@@ -1,3 +1,4 @@
+"use client";
 import { format } from 'date-fns';
 import {TransactionType} from "@/app/(app-pages)/finance/types";
 
@@ -50,7 +51,7 @@ export default function TransactionsTable({ transactions }: TransactionsTablePro
                 </thead>
                 <tbody className="divide-y divide-gray-200 bg-white">
                   {transactions.map((transaction) => (
-                    <tr key={transaction.datetime}>
+                    <tr key={transaction.timestamp}>
                       <td className="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6">
                         {transaction.title}
                       </td>
@@ -59,7 +60,7 @@ export default function TransactionsTable({ transactions }: TransactionsTablePro
                         {transaction.amount}
                       </td>
                       <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
-                        {format(new Date(transaction.datetime), 'MMM d, HH:mm')}
+                        {transaction.timestamp ? format(new Date(transaction.timestamp), 'MMM d, HH:mm') : 'Invalid date'}
                       </td>
                       <td className="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-6">
                         <a href="#" className="text-indigo-600 hover:text-indigo-900">
