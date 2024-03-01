@@ -10,6 +10,7 @@ import {
   XMarkIcon,
 } from '@heroicons/react/24/outline'
 import { ChevronDownIcon, MagnifyingGlassIcon } from '@heroicons/react/20/solid'
+import WelfareWaterCheck from "@/components/welfare/water";
 
 const navigation = [
   { name: 'Dashboard', href: '/dashboard', icon: HomeIcon, current: true },
@@ -179,6 +180,8 @@ export default function DashboardLayout({
                 {/* Separator */}
                 <div className="hidden lg:block lg:h-6 lg:w-px lg:bg-gray-900/10" aria-hidden="true"/>
 
+                <WelfareWaterCheck />
+
                 {/* Profile dropdown */}
                 <Menu as="div" className="relative">
                   <Menu.Button className="-m-1.5 flex items-center p-1.5">
@@ -227,10 +230,6 @@ export default function DashboardLayout({
               </div>
             </div>
           </div>
-
-          <main className="xl:pl-96">
-            <div className="px-4 py-10 sm:px-6 lg:px-8 lg:py-6">{/* Main area */}</div>
-          </main>
         </div>
 
         <main className="lg:pl-20">
