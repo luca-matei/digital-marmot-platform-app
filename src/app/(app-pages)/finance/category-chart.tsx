@@ -4,11 +4,11 @@ import { PieChart } from '@mui/x-charts/PieChart';
 import { TransactionType } from "@/app/(app-pages)/finance/types";
 import {ArrowRightIcon} from "@heroicons/react/24/solid";
 
-interface ExpensesCategoryChartProps {
+interface CategoryChartProps {
   transactions: TransactionType[];
 }
 
-export default function ExpensesCategoryChart({ transactions }: ExpensesCategoryChartProps) {
+export default function CategoryChart({ transactions }: CategoryChartProps) {
   const chartContainerRef = useRef<HTMLDivElement>(null);
   const [chartSize, setChartSize] = useState({ width: 0, height: 0 });
   const [view, setView] = useState<'Expenses' | 'Income'>('Expenses'); // Track current view
@@ -67,7 +67,7 @@ export default function ExpensesCategoryChart({ transactions }: ExpensesCategory
           <h2 className="text-lg font-semibold text-gray-900">{view}</h2>
           <button
               onClick={toggleView}
-              className="py-1 shadow-sm sm:rounded-lg"
+              className="py-1 sm:rounded-lg"
               aria-label="Next"
           >
             <ArrowRightIcon className="h-6 w-6"/>

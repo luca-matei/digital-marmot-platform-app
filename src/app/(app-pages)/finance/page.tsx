@@ -5,7 +5,7 @@ import {TransactionType} from "@/app/(app-pages)/finance/types";
 import BudgetManager from "@/app/(app-pages)/finance/budget-manager";
 import TransactionsTable from "@/app/(app-pages)/finance/transactions-table";
 import IncomeVsExpensesChart from "@/app/(app-pages)/finance/income-vs-expenses-chart";
-import ExpensesCategoryChart from "@/app/(app-pages)/finance/expenses-category-chart";
+import CategoryChart from "@/app/(app-pages)/finance/category-chart";
 
 export default function Finance() {
   const [transactions, setTransactions] = useState([]);
@@ -35,7 +35,7 @@ export default function Finance() {
       <BudgetManager/>
     </div>
     <div className="w-1/4 px-2">
-      <ExpensesCategoryChart transactions={transactions}/>
+      <CategoryChart transactions={transactions}/>
     </div>
     <div className="w-1/2 px-2">
       <IncomeVsExpensesChart transactions={transactions}/>
