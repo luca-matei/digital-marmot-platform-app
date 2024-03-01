@@ -75,18 +75,17 @@ export default function IncomeVsExpensesChart({ transactions }: IncomeVsExpenses
       <p className="mt-2 text-sm text-gray-700">
         See how your income and expenses have changed over time.
       </p>
-      {/* Use flex flex-grow to allow the chart container to expand */}
       <div className="flex-grow" ref={chartContainerRef}>
         {chartSize.width > 0 && (
           <LineChart
             xAxis={[{scaleType: 'point', data: xLabels}]} // Updated to use xLabels
             series={[
               {
-                label: 'Income',
+                label: 'Total Income',
                 data: incomeData,
               },
               {
-                label: 'Expenses',
+                label: 'Total Expenses',
                 data: expenseData.map(value => Math.abs(value)),
               },
               {
